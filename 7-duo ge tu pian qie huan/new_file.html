@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 875px;
+				height: 553px;
+				background: url(img/bg.png)  no-repeat;
+				
+			}
+			img{
+				position: absolute;
+				top: 114px;
+				height: 245px;
+				cursor: pointer;
+			}
+			#box img:nth-of-type(1){
+				width:448px;
+				left: 57px;
+			}
+			#box img:nth-of-type(2){
+				width: 248px;
+				left:559px;
+			}
+			i{
+				position: absolute;
+				bottom: 229px;
+				font-weight: bold;
+			}
+			#box i:nth-of-type(1){
+				left: 49px;
+			}
+			#box i:nth-of-type(2){
+				left: 560px;
+			}
+			p{
+				height: 20px;
+				width: 200px;
+				position: absolute;
+				bottom: 271px;
+				text-align: center;
+			}
+			#box p:nth-of-type(1){
+				left: 136px;
+			}	
+			#box p:nth-of-type(2){
+				width: 130px;
+				left: 634px;
+			}
+			a{
+				position: absolute;
+				top:54px;
+				width: 60px;
+				height: 20px;
+			}
+			#box a:nth-of-type(1){
+				left:23px;
+			}
+			#box a:nth-of-type(2){
+				left: 100px;
+			}
+		</style>
+		
+		
+	</head>
+	<body>
+		<div id="box">
+			<a href="javascript:;" class="left"></a>
+			<a href="javascript:;" class="right"></a>
+			<img src="" alt="" class="left"/>
+			<img src="" alt="" class="right"/>
+			<i class="left"></i>
+			<i class="right"></i>
+			<p class="left"></p>
+			<p class="right"></p>
+		
+		
+		
+			<script type="text/javascript">
+				var as = document.getElementsByTagName('a');
+				var leftpic = document.getElementsByTagName('img')[0];
+				var rightpic = document.getElementsByTagName('img')[1];
+				var is = document.getElementsByTagName('i');
+				var p1 = document.getElementsByTagName('p')[0];
+				var p2 = document.getElementsByTagName('p')[1];
+				
+				
+				var img1 = ['0.jpg','1.jpg','2.jpg','3.jpg','4.jpg',];
+				var img2 = ['2.jpg','3.jpg','4.jpg'];
+				var text1 = ['第一张','第二张','第三张','第四张','第五张'];
+				var text2 = ['第一张','第二张','第三张'];
+				
+				
+					leftpic.num = 0;
+					rightpic.num = 0;
+					//左边点击图片
+					leftpic.onclick = function(){
+						leftpic.num++;
+						left()
+					}	
+					leftpic.src = 'img/'+img1[leftpic.num];
+					function left(){
+						//循环如果是最后一张就回到第一张
+						if(leftpic.num>=img1.length){
+							leftpic.num = 0;
+						}
+						//循环第一张可以循环到最后一张
+						if(leftpic.num<0){
+							leftpic.num = img1.length-1;
+						}
+						//添加图片
+						leftpic.src = 'img/'+img1[leftpic.num];
+						//文字显示随着点击次数增加
+						p1.innerHTML= text1[leftpic.num];
+						//张数随着点击加一
+						is[0].innerHTML = (leftpic.num+1)+'/'+img1.length;
+					}
+					
+					
+					
+					rightpic.onclick = function(){
+						rightpic.num++;
+						right()
+					}
+					rightpic.src='img/'+img2[rightpic.num];
+					
+					function right(){
+						if(rightpic.num>=img2.length){
+							rightpic.num = 0;
+						}
+						if(rightpic.num<0){
+							rightpic.num = img2.length-1;
+						}
+						rightpic.src='img/'+img2[rightpic.num];
+						p2.innerHTML= text2[rightpic.num];
+						is[1].innerHTML = (rightpic.num+1)+'/'+img2.length;
+				}
+
+					
+					
+					
+					as[1].onclick = function(){
+						leftpic.num++;
+						rightpic.num++;
+						left();
+						right();
+					}
+					
+					as[0].onclick = function(){
+						leftpic.num--;
+						rightpic.num--;
+						left();
+						right();
+					}
+				
+				
+			</script>
+			
+			
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#a{
+				margin: 50px auto;
+				position: relative;
+				padding: 0;
+			}
+			li{
+				width: 45px;
+				height: 45px;
+				background-color: #CCCCCC;
+				position: absolute;
+				list-style: none;
+			}
+			
+			.show{
+				background: url(images/5.jpg);
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+		</ul>
+		<script type="text/javascript">
+			
+			var lis = document.getElementsByTagName('li');
+			var num = 0;
+			var str = '';
+			//生成100个div，进行定位
+			 for(var i=0;i<100;i++){
+			 	 if(i%10==0){
+			 	 	num++;
+			 	 }
+			 	 str += '<li style="left:'+i%10*55+'px; top:'+num*55+'px; background-position-x:'+ -i%10*55 +'px; background-position-y:'+ -num*55 +'px;"></li>';
+			 }
+			 
+				list.innerHTML = str;	
+				//鼠标移入给div加入新的class，然后形成擦擦擦
+			for(var i=0;i<lis.length;i++){
+				lis[i].onmousemove = function(){
+					
+					this.className = 'show';
+				}
+				
+			}
+			
+			
+		</script>
+	</body>
+</html>
+ 

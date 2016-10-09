@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				width:200px;
+			}
+			li{
+				list-style: none;
+				font-size:14px;
+				height: 30px;
+				line-height: 30px;
+				background: #EFEFEF;
+				color: #666;
+				font-weight: bold;
+				padding: 0 20px;
+			}
+			.none{
+				background-color: #333333;
+				color: #fff;
+			}
+			.bian{
+				background-color: lightgoldenrodyellow;
+			}
+			.bian1{
+				font-size: 18px;
+				background-color: #BDCEC6;
+				color: #0000FF;
+			}
+			.bian2{
+				font-size: 22px;
+				background-color: #940032;
+				color: #9CCE00;
+			}
+		</style>
+		<script src="miaov.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul>
+			<li class="none">这是首行</li>
+			<li>11111</li>
+			<li>22222</li>
+			<li>33333</li>
+			<li>44444</li>
+			<li>55555</li>
+			<li>66666</li>
+			<li>77777</li>
+			<li>88888</li>
+			<li>99999</li>
+			<li class="none">这是末行</li>
+		</ul>
+		<script type="text/javascript">
+			var ul = document.getElementsByTagName('ul')[0];
+			var li = ul.children;
+			var a = ul.firstElementChild;
+			var b = ul.lastElementChild;
+			
+			for(var i=0;i<li.length;i++){
+				li[i].onmouseover = function(){
+					if(this == a || this == b){
+						this.className = 'bian';
+					}else if(this.previousElementSibling == a ){
+						ymh1(this,'bian2','none','bian1');
+					}else if(this.nextElementSibling==b){
+						ymh1(this,'bian2','bian1','none');
+					}else{
+						ymh1(this,'bian2','bian1','bian1');
+					}
+				}
+				li[i].onmouseout = function(){
+					for(var i=0;i<li.length;i++){
+						li[i].className = '';
+						ul.firstElementChild.className = 'none';
+						ul.lastElementChild.className = 'none';
+					}
+				}
+			}
+			function ymh1(q,a,s,d){
+				q.className = a;
+				q.previousElementSibling.className  = s;
+				q.nextElementSibling.className = d;
+			}
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,105 @@
+0<k!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		
+			#btn{
+				margin-bottom: 10px;
+			}
+			ul{
+				margin-top: 20px;
+			}
+			li{
+				width: 100px;
+				height:100px;
+				float: left;
+				list-style: none;
+				position: relative;
+				margin-left: 20px;
+			}
+			img{
+				width: 70px;
+				height: 70px;
+				margin: 15px;
+				vertical-align: top;
+			}
+			ul input{
+				position: absolute;
+				top: 5px;
+				left: 5px;
+			}
+			.active{
+				background-color: #DDDDDD;
+			}
+			.active1{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="btn" value="新建文件夹" />
+		<input type="button" name="" id="btn1" value="删除新建文件夹" />
+		<ul></ul>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var btn1 = document.getElementById('btn1')
+			var ul  = document.getElementsByTagName('ul')[0];
+			
+			
+			btn.onclick = function(){
+				var li = document.createElement('li');
+				var inps = document.createElement('input');
+				var img = document.createElement('img');
+				var onOff = true;
+				img.src = '1.jpg';
+				inps.type = 'checkbox';
+				inps.style.display = 'none';
+				
+				ul.appendChild(li);
+				li.appendChild(inps);
+				li.appendChild(img)
+				
+				li.onmouseover = function(){
+					if(li.className==''){
+						li.style.backgroundColor = '#DDDDDD';
+						inps.style.display = 'block';
+					}
+				}
+				li.onmouseout = function(){
+					if(li.className==''){
+						li.style.backgroundColor = '';
+						inps.style.display = 'none';
+					}
+				}
+				li.onclick = function(){
+					if(onOff){
+						inps.checked = true;
+						li.className = 'active';
+						inps.className = 'active1';
+						onOff = false;
+					}else{
+						inps.checked = false;
+						li.className = '';
+						onOff = true;
+					}
+				}
+				
+				var inps1 = ul.getElementsByTagName('input');
+				var li1 = ul.children;
+				btn1.onclick = function(){
+					for (var i=0;i<inps1.length;i++) {
+						if(inps1[i].checked){
+							ul.removeChild(li1[i]);
+							i--;
+						}
+					}
+				}
+				
+			}
+			
+			
+		</script>
+	</body>
+</html>

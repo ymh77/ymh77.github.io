@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		ul{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+			float: left;
+			position: relative;
+			height: 70px;
+		}
+		div{
+			/*position: absolute;
+			margin: 0;
+			top: 0;	*/
+		}
+		img{
+			vertical-align: top;
+		}
+	</style>
+	<script type="text/javascript" src="tween.js"></script>
+	<script type="text/javascript" src="mTween.js"></script>
+</head>
+<body>
+	<ul>
+		<li>
+			<div><img src="img/0.jpg" alt=""></div>
+		</li>
+		<li>
+			<div><img src="img/0.jpg" alt=""></div>
+		</li>
+		<li>
+			<img src="img/c.jpg" alt="">
+		</li>
+		<li>
+			<div><img src="img/0.jpg" alt=""></div>
+		</li>
+		<li>
+			<div><img src="img/0.jpg" alt=""></div>
+		</li>
+		<li>
+			<img src="img/c.jpg" alt="">
+		</li>
+		<li>
+			<div><img src="img/0.jpg" alt=""></div>
+		</li>
+		<li>
+			<div><img src="img/0.jpg" alt=""></div>
+		</li>
+	</ul>
+	<script type="text/javascript"> 
+		var imgs = document.querySelectorAll('div img');
+		var img1 = document.querySelectorAll('li>img');
+		
+		asd()
+		
+		setInterval(function(){
+			asd()
+			for(var i=0;i<img1.length;i++){
+				img1[i].src = 'img/c.jpg';
+			}
+			setTimeout(function(){
+				for(var i=0;i<img1.length;i++){
+					img1[i].src = 'img/b.jpg';
+				}
+			},500);
+			
+		},1000);
+		
+		function asd(){
+			var date = new Date();
+			var h = date.getHours();
+			var m = date.getMinutes();
+			var s = date.getSeconds();
+			
+			var time = zxc(h)+zxc(m)+zxc(s);
+			
+			for(var i=0;i<time.length;i++){
+				imgs[i].src = 'img/'+time[i]+'.jpg';
+			}
+			
+		}
+		
+		function zxc(n){
+			return n<10? '0'+n:''+n;
+		}
+		
+		
+	</script>
+</body>
+</html>

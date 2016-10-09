@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		 	ol,ul{
+					margin:0;padding:0;list-style:none;
+				}
+				input{
+					border: none;
+					padding:0;
+					margin:0;
+				}
+			#xz{
+				font-size: 20px;
+			}
+			#dianji{
+				display: inline-block;
+				width: 70px;
+				height: 30px;
+				background-color:red ;
+				text-align: center;
+				text-decoration: none;
+				font-size: 12px;
+				line-height: 30px;
+			}
+			#xz1{
+				width: 100px;
+				height: 100px;
+				background-color: white;
+				border: 5px solid black;
+				margin-top:10px ;
+			}
+			#xz2{
+				width: 300px;
+				height: 200px;
+				border: 20px solid #9c949c;
+				background-color: white;
+				margin: 0 auto;
+				display: none;
+				position: absolute;
+				top: 40%;
+				left: 40%;
+			}
+			#xz21{
+				width: 235px;
+				height: 32px;
+				font-size: 14px;
+				line-height: 32px;
+				margin: 16px  auto;
+				margin-bottom: 0;
+			}
+			#xz21 ul{
+				float: right;
+			}
+			#xz21 li{
+				float: left;
+				width: 36px;
+				height: 32px;
+				margin-left: 5px;
+				text-align: center;
+				line-height: 32px;
+				color: white;
+				cursor: pointer;
+			}
+			#y1{
+				background-color: #9cce00;
+			}
+			#y2{
+				background-color: #efbd00;
+			}
+			#y3{
+				background-color: #5a94ef;
+			}
+			#xz22{
+				width: 235px;
+				height: 32px;
+				font-size: 14px;
+				line-height: 32px;
+				margin: 10px  auto;
+			}
+			#xz22 ul{
+				float: right;
+			}
+			#xz22 li{
+				background-color: #efefef;
+				float: left;
+				width: 34px;
+				height: 30px;
+				margin-left: 5px;
+				text-align: center;
+				line-height: 32px;
+				color: #848c8c;
+				border: 1px solid #9C949C;
+				cursor: pointer;
+			}
+			#xz23{
+				width: 235px;
+				height: 32px;
+				font-size: 14px;
+				line-height: 32px;
+				margin: 10px  auto;
+			}
+			#xz23 ul{
+				float: right;
+			}
+			#xz23 li{
+				background-color: #efefef;
+				float: left;
+				width: 34px;
+				height: 30px;
+				margin-left: 5px;
+				text-align: center;
+				line-height: 32px;
+				color: #848c8c;
+				border: 1px solid #9C949C;
+				cursor: pointer;
+			}
+			#button1{
+				width: 60px;
+				height: 30px;
+				background-color: #002952;
+				color: white;
+				margin-left: 88px;
+				cursor: pointer;
+			}
+			#button2{
+				width: 60px;
+				height: 30px;
+				background-color: #002952;
+				color: white;
+				cursor: pointer;
+			}
+			#xianshi{
+				width: 100%;
+				height: 100%;
+				background:rgba(0,0,0,0.5) ;
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="xianshi">
+			
+		</div>
+		<div id="xz">
+			请为下面的DIV设置样式:
+			<a href="#" id="dianji">点击设置</a>
+		</div>
+		<div id="xz1">
+		</div>
+		<div id="xz2">
+			<div id="xz21">
+			请选择背景颜色：
+				<ul>
+					<li id="y1">红</li>
+					<li id="y2">黄</li>
+					<li id="y3">蓝</li>
+				</ul>
+			</div>
+			<div id="xz22">
+			请选择宽（px）：
+				<ul>
+					<li id="w1">200</li>
+					<li id="w2">300</li>
+					<li id="w3">400</li>
+				</ul>
+			</div>
+			<div id="xz23">
+			请选择高（px）：
+				<ul>
+					<li id="g1">200</li>
+					<li id="g2">300</li>
+					<li id="g3">400</li>
+				</ul>
+			</div>
+			<input type="button" id="button1" value="恢复" />
+			<input type="button" id="button2" value="确定" />
+		</div>
+		
+		<script type="text/javascript">
+			document.getElementById('dianji').onclick = function(){
+				document.getElementById('xz2').style.display = 'block'
+				document.getElementById('xianshi').style.display = 'block'
+			}
+			var y1 = document.getElementById('y1');
+			var y2 = document.getElementById('y2');
+			var y3 = document.getElementById('y3');
+			var w1 = document.getElementById('w1');
+			var w2 = document.getElementById('w2');
+			var w3 = document.getElementById('w3');
+			var g1 = document.getElementById('g1');
+			var g2 = document.getElementById('g2');
+			var g3 = document.getElementById('g3');
+			var button1 = document.getElementById('button1');
+			var button2 = document.getElementById('button2');
+			var xz1 = document.getElementById('xz1');
+			
+			y1.onclick = function  () {
+				xz1.style.backgroundColor = 'red'
+			} 
+			y2.onclick = function  () {
+				xz1.style.backgroundColor = 'yellow'
+			} 
+			y3.onclick = function  () {
+				xz1.style.backgroundColor = 'blue'
+			} 
+			w1.onclick = function  () {
+				xz1.style.width = '200px'
+			} 
+			w2.onclick = function  () {
+				xz1.style.width = '300px'
+			} 
+			w3.onclick = function  () {
+				xz1.style.width = '400px'
+			} 
+			g1.onclick = function  () {
+				xz1.style.height = '200px'
+			} 
+			g2.onclick = function  () {
+				xz1.style.height = '300px'
+			} 
+			g3.onclick = function  () {
+				xz1.style.height = '400px'
+			} 
+			button1.onclick = function  () {
+				xz1.style.width = '100px';
+				xz1.style.height = '100px';
+				xz1.style.backgroundColor = 'white';
+			} 
+			button2.onclick = function  () {
+				xianshi.style.display = 'none';
+				xz2.style.display = 'none';
+			} 
+			
+			
+		</script>
+	</body>
+</html>

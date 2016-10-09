@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			a{
+			    text-decoration: none;
+			}
+			ul{
+			    margin: 0;
+			    padding: 0;
+			}
+			input{
+			    padding: 0;
+			}
+			li{
+			    list-style: none;
+			}
+			#box{
+				width: 600px;
+				height: 500px;
+				background-color: #EFEFEF;
+				position: relative;
+			}
+			#wenzi{
+				position: absolute;
+				top: 50px;
+				left: 25px;
+				background-color: #F7F794;
+				color: black;
+				font-weight: bold;
+				width: 450px;
+			}
+			#lis{
+				position: absolute;
+				top:35px;
+		        right: 10px;
+		        text-align: center;
+			}
+			#lis a{
+				display: block;
+				width: 50px;
+				height: 30px;
+				line-height: 30px;
+			}
+			#lis>a{
+				background-color: #C0C0C0;
+        		color:black;
+			}
+			#lis li a{
+				background-color: #ccc;
+        		color:black;
+			}
+			#lis li a:hover{
+				background-color: #E76308;
+				color:white;
+			}
+			#anniu{
+				position: absolute;
+				bottom: 50px;
+				left: 35px;
+				width: 400px;
+				border: 5px solid #E71063;
+				background-color: #E7E7B5;
+			}
+			#btns{
+				width: 370px;
+				margin: 0 auto;
+				height: 50px;
+        		border-bottom: 2px solid #E73100;
+			}
+			#btns a{
+				float: left;
+		        width: 70px;
+		        line-height: 30px;
+		        text-align: center;
+		        background-color: #E7E7B5;
+		        color: black;
+		        margin-top: 20px;
+			}
+			#btns .active{
+		        background-color: #E73100;
+		        color: white;
+		    }
+		    #chazhao,#tihuan{
+		    	height: 30px;
+		        padding: 20px;
+		      	display: none;
+			}
+			#anniu input{
+		        height: 25px;
+		        width: 140px;
+		    }
+		    #anniu #cz{
+		    	width: 50px;
+        		height: 30px;
+		    }
+		    #anniu #th{
+		    	width: 50px;
+        		height: 30px;
+		    }
+		    span{
+		        background-color: #B36CD0;
+		    }
+</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="wenzi">
+				我开始一点点的看透人情世故，我开始越来越不爱说话，好像沉默会比较少烦恼，
+				我开始一点点的看透爱情友情，我开始越来越不爱主动，似乎沉默会比较少受伤。
+				我慢慢长大，慢慢成熟，也开始慢慢，慢慢对这个世界没有感觉充满厌倦，
+				一路上也一直有人叮嘱，你要学会适应生活然后改变生活，可生活一直在改变，
+				该如何适应。她说她要结婚了，因为说他有房有车......
+				如果有一天，我们结婚了，我只希望，那是因为爱情,而不是家里人的催促，
+				说我们年纪大了，也不是因为父母之命...
+				将来结婚都是因为爱情，而不是因为合适。愿有岁月可回首，且以深情共白头
+			</div>
+			<div id="lis">
+				<a href="javascript:;">展开</a>
+		        <ul style="display: none;">
+		            <li><a href="javascript:;">查找</a></li>
+		            <li><a href="javascript:;">替换</a></li>
+		        </ul>
+			</div>
+			<div id="anniu" style="display: none;">
+				<div id="btns">
+					<a href="javascript:;" class="active">查找</a>
+            		<a href="javascript:;">替换</a>
+				</div>
+				<div id="chazhao" style="display: block;">
+					<input type="text" name="" id="" value="" />
+					<input type="button" name="" id="cz" value="查找" />
+				</div>
+				<div id="tihuan">
+					<input type="text" name="" id="" value="" />
+					<input type="text" name="" id="" value="" />
+					<input type="button" name="" id="th" value="替换" />
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var neirong = document.getElementById('wenzi');
+			var lis = document.getElementById('lis');
+			var zk = lis.getElementsByTagName('a');
+			var ul = lis.getElementsByTagName('ul')[0];
+			var anniu = document.getElementById('anniu');
+			var a = anniu.getElementsByTagName('a');
+			var btns = anniu.getElementsByTagName('div');
+			var inputs = btns[1].getElementsByTagName('input');
+			var inputs1 = btns[2].getElementsByTagName('input');
+			var text = neirong.innerHTML;
+			var onOff = true;
+			var time = null;
+			//总开关“展开”开关设置
+			zk[0].onclick = function(){
+				if(onOff){
+					ul.style.display = 'block';
+					onOff = false;
+				}else{
+					ul.style.display = 'none';
+					onOff = true;
+				}
+				
+			};
+			//显示查找
+			zk[1].onclick = function(){
+				onOff = true;
+				ymh(2,1,1,0);
+			};
+			//显示替换
+			zk[2].onclick = function(){
+				onOff = true;
+				ymh(1,2,0,1);
+			};
+			//函数样式设置
+			function ymh(n,m,n1,m1){
+				anniu.style.display = 'block';
+				btns[n].style.display = 'none';
+				btns[m].style.display = 'block';
+				ul.style.display = 'none';
+				a[n1].className = '';
+				a[m1].className = 'active';
+			}
+			//查找直接显示
+			a[0].onclick = function(){
+				ymh1(2,1,1,0);
+			};
+			//替换直接显示
+			a[1].onclick = function(){
+				ymh1(1,2,0,1);
+			};
+			function ymh1(n,m,n1,m1){
+				btns[n].style.display = 'none';
+				btns[m].style.display = 'block';
+				a[n1].className = '';
+				a[m1].className = 'active';
+			}
+			//查找按钮设置
+			inputs[1].onclick = function(){
+				//每一次文本都初始化下
+				neirong.innerHTML = text;
+				//设置一个变量当做间隔符
+				var str = inputs[0].value;
+				//不能输入空的内容
+				if(str==''){
+					return;
+				}
+				//通过间隔符的属性，把查找的字符当做间隔符添加颜色再重新相加
+				neirong.innerHTML = neirong.innerHTML.split(str).join('<span>'+str+'</span>');
+			}
+			//替换按钮设置
+			inputs1[2].onclick = function(){
+				//分别给两个输入框赋予变量
+				var str = inputs1[0].value;
+				var str1 = inputs1[1].value;
+				//判断如果输入的内容没有的话提示错误
+				if(neirong.innerHTML.split(str)==neirong.innerHTML){
+					alert('被替换的内容不存在')
+					return;
+				}
+				//不输入被替换的那么就提示删除原来的词语
+				if(inputs1[1].value==''){
+					if(!confirm('确定要删除'+inputs1[0].value+'')){
+						return;
+					}
+				}
+				//不能只输入被替换的
+				if(str1&&!str){
+					alert('被替换的不能是空')
+					return;
+				}
+				neirong.innerHTML = neirong.innerHTML.split(str).join(str1);
+				//每次完成一次替换后对话框都清空一次。
+				inputs1[0].value = '';
+				inputs1[1].value = '';
+			};
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				font-size: 30px;
+				text-align: center;
+				line-height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+		var num = 0;
+		var str='';
+		var arr=['red','yellow','blue','green'];
+			for(var i= 0;i<100;i++){
+				if(i%10==0){
+					num++;
+				}
+				str +='<div style="left:'+i%10*110+ 'px;top:'+num*110+'px;background:'+arr[i%arr.length]+';">'+i+'</div>';
+				
+			}
+			document.body.innerHTML=str;
+			
+		</script>
+	</body>
+</html>

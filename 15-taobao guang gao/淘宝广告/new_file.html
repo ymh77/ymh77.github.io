@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 500px;
+				border: 1px solid #000000;
+				margin: 50 auto;
+				position:  relative;
+			}
+			img{
+				width: 350px;
+				margin: 10px 75px 20px ;
+				height: 290px;
+			}
+			ul{
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				top:10px;
+			}
+			ul:nth-of-type(1){
+				left: 5px;
+			}
+			ul:nth-of-type(2){
+				right: 15px;
+			}
+			li{
+				list-style: none;
+				width:50px;
+				height: 30px;
+				margin: 5px 0;
+				border: 1px solid black;
+				line-height: 30px;
+				text-align: center;
+				cursor: pointer;
+			}
+			.active{
+				color:white;
+				background-color:greenyellow; 
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li class="active">连衣裙</li>
+				<li>雪纺</li>
+				<li>T恤</li>
+				<li>铅笔裤</li>
+				<li>婚纱</li>
+				<li>T恤</li>
+				<li>铅笔裤</li>
+				<li>婚纱</li>
+			</ul>
+			<ul>
+				<li>包包</li>
+				<li>凉鞋</li>
+				<li>单鞋</li>
+				<li>太阳镜</li>
+				<li>丝袜</li>
+				<li>T恤</li>
+				<li>铅笔裤</li>
+				<li>婚纱</li>
+			</ul>
+			<img src="img/0.jpg" alt="">
+			
+			<script type="text/javascript">
+				var box = document.getElementById('box');
+				var lis = document.getElementsByTagName('li');
+				var img = document.getElementsByTagName('img')[0];
+				var imgs=['img/0.jpg','img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/1.jpg','img/0.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/0.jpg','img/2.jpg','img/1.jpg','img/2.jpg','img/4.jpg','img/3.jpg'];
+				var timer = null;
+				var num = 0;
+				//鼠标移入li样式跟图片进行对应
+				for(var i=0;i<lis.length;i++){
+					lis[i].index = i
+					lis[i].onmouseover = function(){
+						asds(this.index);
+						num=this.index;
+					}
+				}
+				
+				zxc()
+				//定时器循环运动，到一半的时候换
+				function zxc(){
+					timer = setInterval(function(){
+						if(num<lis.length/2){
+							num++;
+							if(num==lis.length/2){
+								num=lis.length-1;
+							}
+						}else{
+							num--;
+							if(num==lis.length/2-1){
+								num=0;
+							}
+						}
+						asds(num);
+					},950);	
+				}
+				
+				box.onmouseover = function(){
+					clearInterval(timer);
+				};
+				box.onmouseout = function(){
+					zxc();
+				}
+				
+				
+				
+				//循环里面先清空每个li的样式然后再加上，对应的的
+				function asds(n){
+					for(var i=0;i<lis.length;i++){
+						lis[i].className = '';
+					}
+					lis[n].className = 'active';
+					img.src = imgs[n];
+				}
+			
+				
+			</script>
+		</div>
+	</body>
+</html>

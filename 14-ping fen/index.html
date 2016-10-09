@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				font-size:30px ;
+			}
+		</style>
+	</head>
+	<body>
+		<span>♥</span>
+		<span>♥</span>
+		<span>♥</span>
+		<span>♥</span>
+		<span>♥</span>
+		
+		<script type="text/javascript">
+			var spans = document.getElementsByTagName('span');
+			var dian ;
+			
+			for(var i=0;i<spans.length;i++){
+				spans[i].index = i;
+				spans[i].onmouseover = function(){
+					for(var i=0;i<spans.length;i++){
+						spans[i].style.color = '';
+						
+					}
+					if(this.index<2){
+						asd(this.index,'red')
+					}else{
+						asd(this.index,'yellow')
+					}
+				}
+				spans[i].onmouseout = function(){
+					for(var i=0;i<spans.length;i++){
+						spans[i].style.color = '';
+						
+					}
+					if(dian<2){
+						asd(dian,'red');
+					}else{
+						asd(dian,'yellow');
+					}
+				}
+				spans[i].onclick = function(){
+					dian = this.index;
+				}
+				
+			}
+			function asd(n,color){
+				for(var i=0;i<=n;i++){
+					spans[i].style.color = color;
+				}
+			}
+	
+		</script>
+	</body>
+</html>

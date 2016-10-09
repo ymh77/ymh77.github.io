@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				background-color: greenyellow;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="mTween.js" type="text/javascript" charset="utf-8"></script>
+		<script src='tween.js' type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var str = '';
+			
+			for(var i=0;i<10;i++){
+				
+				str += '<div style = " left:'+i*60+'px; "></div>';
+			}
+			document.body.innerHTML = str;
+			
+			var divs = document.getElementsByTagName('div');
+			var onOff = true;
+			
+			document.onclick = function(){
+				//开关控制
+				if(onOff){
+					
+					for(var i=0;i<10;i++){
+						asd(i,i*100);
+					}
+					
+					onOff = false;
+				}else{
+					for(var i=0;i<10;i++){
+						asd1(i,i*100);
+					}
+					onOff = true;
+				}
+			};
+			//封装函数div往下运动
+			function asd(n,top){
+				setTimeout(function(){
+					mTween(divs[n],'top',500,600,'bounceIn');
+				},top);
+			}
+			//封装函数div往上运动
+			function asd1(n,top){
+				setTimeout(function(){
+					mTween(divs[n],'top',0,600,'bounceIn');
+				},top);
+			}
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

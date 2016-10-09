@@ -1,0 +1,201 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p,ul{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			li{
+				list-style: none;
+			}
+			div{
+				float:left;
+			}
+			#left,#right{
+				width: 380px;
+				height: 200px;
+				padding: 20px;
+				border:  5px solid #940032;
+				border-radius: 15px;
+				position: relative;
+			}
+			#right{
+				border-color: #63F7FF;
+			}
+			#left span,#right span{
+				width: 100px;
+				height: 50px;
+				background-color: #EFBD00;
+				border-radius:5px ;
+				position: absolute;
+				bottom: 30px;
+				left: 50%;
+				margin-left: -55px;
+				line-height: 50px;
+				text-align: center;
+				color: white;
+			}
+			#right span{
+				background-color: lightgreen;
+			}
+			#center{
+				width: 100px;
+				height: 150px;
+				padding: 10px;
+				position: relative;
+			}
+			#center a{
+				width: 50px;
+				height: 20px;
+				background-color: #FF0000;
+				color: white;
+				display: block;
+				text-align: center;
+				line-height: 20px;
+				margin-top: 10px;
+				border-radius: 5px;
+				margin-left: 25px;
+			}
+			#center ul{
+				position: absolute;
+				bottom: 0px;
+			}
+			#center li{
+				width: 10px;
+				height: 10px;
+				border-radius:50% ;
+				background-color: #BDDEDE;
+				float: left;
+				margin: 0 5px;
+			}
+			#center li.active{
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="left">
+			<p>
+				很喜欢宫崎骏说过的一句话：“你住的城市下雨了，很想问你有没有带伞，可是我忍住了，
+				因为我怕你说没带，而我又无能为力，就像我爱你，给你不到你想要的陪伴。”
+				你明明知道你需要放手却放不下，因为你还在等待不可能发生的发生，这种感觉真的很难受。
+				No matter how painful, how sad,others can not see, also do not love you,you
+				sad to see who.
+			</p>
+			<span></span>
+		</div>
+		<div id="center">
+			<a href="javascript:;" id="toLeft">→</a>
+			<a href="javascript:;" id="toRight">←</a>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div id="right">
+			<p></p>
+			<span></span>
+		</div>
+		
+		<script type="text/javascript">
+			var left = document.getElementById('left');
+			var right = document.getElementById('right');
+			var toleft = document.getElementById('toLeft');
+			var toright = document.getElementById('toRight');
+			var p1 = left.getElementsByTagName('p')[0];
+			var span1 = left.getElementsByTagName('span')[0];
+			var p2 = right.getElementsByTagName('p')[0];
+			var span2 = right.getElementsByTagName('span')[0];
+			var lis = document.getElementsByTagName('li');
+			var str = p1.innerHTML;
+			var len=p1.innerHTML.length;
+			var str1 = p2.innerHTML;
+			var num = 0;
+			var time = null;
+			var onOff = true;
+			var arr = str.split('');
+		
+			
+			span1.innerHTML = num+'/'+arr.length;
+			span2.innerHTML = num+'/'+num;
+			
+			toleft.onclick = function(){
+				if(p1.innerHTML==''){
+					alert('木有了')
+					return;
+				}
+				if(!onOff){
+					return;
+				}
+				
+				onOff = false;
+				
+				time = setInterval(function(){
+					p1.innerHTML = str.substring(num+1);
+					p2.innerHTML += str[num];
+						num++;
+					span1.innerHTML = (arr.length-num)+'/'+arr.length;
+					span2.innerHTML = num+'/'+arr.length;
+					asd();
+						if(num>=str.length){
+							clearInterval(time);
+							num = 0;
+							str1 = p2.innerHTML;
+							str = '';
+							onOff = true;
+						}
+						
+				},30)
+			}
+			function asd(){
+				for(var i=0;i<lis.length;i++){
+					for(var i=0;i<lis.length;i++){
+						lis[i].className = '';
+					}
+					lis[num%i].className = 'active';
+				}
+			}
+			
+			
+			toright.onclick = function(){
+				if(p2.innerHTML==''){
+					alert('木有了')
+					return;
+				}
+				if(!onOff){
+					return;
+				}
+				onOff = false;
+				time = setInterval(function(){
+					p2.innerHTML = str1.substring(num+1);
+					p1.innerHTML += str1[num];
+						num++;
+					span2.innerHTML = (arr.length-num)+'/'+arr.length;
+					span1.innerHTML = num+'/'+arr.length;
+						if(num>=str1.length){
+							clearInterval(time);
+							num = 0;
+							str = p1.innerHTML;
+							str1 = '';
+							onOff = true;
+						}
+						asd();
+				},30)
+				
+			}
+
+			
+			
+			
+		</script>
+	</body>
+</html>

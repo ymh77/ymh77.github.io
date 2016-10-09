@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				margin-bottom:10px ;
+				position: relative;
+				/*top:  0;*/
+			}
+		</style>
+		
+	</head>
+	<body>
+		<script src="mTween.js" type="text/javascript" charset="utf-8"></script> 
+		<script src="tween.js" type="text/javascript" charset="utf-8"></script>
+		<ul>
+			<li>
+				000
+				<input type="button" name="" id="" value="上移" />
+				<input type="button" name="" id="" value="下移" />
+			</li>
+			<li>
+				111
+				<input type="button" name="" id="" value="上移" />
+				<input type="button" name="" id="" value="下移" />
+			</li>
+			<li>
+				222
+				<input type="button" name="" id="" value="上移" />
+				<input type="button" name="" id="" value="下移" />
+			</li>
+			<li>
+				333
+				<input type="button" name="" id="" value="上移" />
+				<input type="button" name="" id="" value="下移" />
+			</li>
+		</ul>
+		<script type="text/javascript">
+			var ul = document.getElementsByTagName('ul')[0];
+			var lis = ul.getElementsByTagName('li');
+			var inputs = lis.children;
+			for(var i=0;i<lis.length;i++){
+				var click = lis[i].children[0];
+				var click1 = lis[i].children[1];
+				click.onclick = function(){
+					var prev = this.parentNode.previousElementSibling;
+					var this1 = this.parentNode;
+					if(!prev)return;
+					ul.insertBefore(this1,prev);
+					mTween(prev,'top',30,100,'linear',function(){
+						prev.style.top = '-30px' ;
+						mTween(prev,'top',0,100,'linear');
+					});
+					mTween(this1,'top',-30,100,'linear',function(){
+						this1.style.top = '30px' ;
+						mTween(this1,'top',0,100,'linear');
+					});
+					
+					
+					
+					
+				}
+				click1.onclick = function(){
+					var next = this.parentNode.nextElementSibling;
+					var this1 = this.parentNode;
+					if(!next)return;
+					ul.insertBefore(next,this1);
+				}
+			}
+			
+		</script>
+		
+	</body>
+</html>

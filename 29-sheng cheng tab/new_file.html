@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 600px;
+				height: 500px;
+				margin: 0 auto;
+				border: 5px solid #CCCCCC;
+			}
+			
+			#tab span{
+				line-height: 40px;
+				width: 90px;
+				display: inline-block;
+				position: relative;
+			}
+			#tab span i{
+				font-style: normal;
+				color:red;
+				position: absolute;
+				top:0;
+				right: 0;
+				cursor: pointer;
+			}
+			#content div{
+				font-size: 30px;
+				line-height: 460px;
+				text-align: center;
+				display: none;
+				background-color: #ccc;
+			}
+			#content .show{
+				display: block;
+			}
+			#tab .active{
+				background-color: #ccc;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="javascript:;">document1</a>
+		<a href="javascript:;">document2</a>
+		<a href="javascript:;">document3</a>
+		<a href="javascript:;">document4</a>
+		<a href="javascript:;">document5</a>
+		<div id="box">
+			<div id="tab">
+				<!-- <button class="active">选项1</button>
+				<button>选项2</button>
+				<button>选项3</button>
+				<button>选项4</button>
+				<button>选项5</button> -->
+			</div>
+			<div id="content">
+				<!-- <div class="show">内容1</div>
+				<div>内容2</div>
+				<div>内容3</div>
+				<div>内容4</div>
+				<div>内容5</div> -->
+			</div>
+	</div>
+	
+	<script type="text/javascript">
+		var as = document.getElementsByTagName('a');
+		var tabs = document.getElementById('tab');
+		var cons = document.getElementById('content');
+		
+		for (var i=0;i<as.length;i++) {
+			as[i].onclick = function(){
+				
+				if(this.obj)return;
+				
+				this.obj=true;
+				var span = document.createElement('span');
+				var divs = document.createElement('div');
+				var a =document.createElement('a');
+				var i = document.createElement('i');
+				var that = this;
+				a.href = 'javascript:;';
+				a.innerHTML =this.innerHTML;
+				i.innerHTML = 'X'
+				span.appendChild(a);
+				span.appendChild(i);
+				divs.innerHTML = '这是内容第'+this.innerHTML;
+			
+				divs.style.display = 'block';
+				span.className = 'active';
+				tabs.appendChild(span);
+				cons.appendChild(divs);
+				if(span.previousElementSibling){
+					span.previousElementSibling.className = '';
+					divs.previousElementSibling.style.display = 'none';
+				}
+	
+				span.children[1].onclick = function(){
+					tabs.removeChild(span);
+					cons.removeChild(divs);
+					if(span.className =='active'&&tabs.children.length>0){
+						tabs.children[0].className='active';
+						cons.children[0].style.display = 'block';
+					}
+					that.obj = false;
+				}
+				a.onclick = function(){
+					for (var i=0;i<tabs.children.length;i++) {
+						tabs.children[i].className='';
+						cons.children[i].style.display = 'none';
+					}
+					a.parentNode.className='active';
+					divs.style.display = 'block';
+				}
+			}
+		}
+		
+		
+	</script>
+	</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			a{
+				text-decoration:none;
+			}
+			img{
+				border:none;
+				vertical-align: top;
+			}
+			input{
+				border: none;
+				padding:0;
+				margin:0;
+				outline: none;
+			}
+
+			#sj{
+				width: 289px;
+				height: 594px;
+				background: url(img/未标题-1.jpg) no-repeat;
+				position: relative;
+				margin: 0 auto;
+			}
+			#pm{
+				width: 233px;
+				height: 41px;
+				border-bottom: 1px solid #bdcec6;
+				border-top: 1px solid #bdcec6;
+				position: absolute;
+				top: 457px;
+				left: 26px;
+				padding-top: 7px;
+				padding-left: 4px;
+			}
+			#xianshi{
+				width: 237px;
+				height: 360px;
+				position: absolute;
+				top: 86px;
+				left: 26px;
+				overflow-y:scroll ;
+				padding-top: 10px;
+			}
+			#tx{
+				display: inline-block;
+				width: 30px;
+				height: 34px;
+				border: 1px solid #ded6e7;
+				border-radius:5px ;
+				background: url(img/2.jpg) no-repeat 3px 5px ;
+				margin-right: 5px;
+				float: left;
+			}
+			#sr{
+				width: 139px;
+				height: 34px;
+				border: 1px solid #ded6e7;
+				border-radius:5px ;
+				margin-right: 5px;
+				float: left;
+			}
+			#fs{
+				width: 44px;
+				height: 36px;
+				text-align: center;
+				line-height: 36px;
+				font-size: 22px;
+				background-color: white;
+				color: #a0a0a4;
+			}
+			p{
+				margin: 0;
+				float: left;
+				margin-bottom: 5px;
+				color: #faf847;
+			}
+			span{
+				display: inline-block;
+				width: 170px;
+				line-height: 28px;
+				background: #0afa91;
+			}
+			i{
+				display: block;
+				margin: 0;
+				float: right;
+				margin-bottom: 5px;
+				color: #b36cd0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="sj">
+			<div id="xianshi">
+				
+			</div>
+			<div id="pm">
+				<a href="javascript:;" id="tx"></a>
+				<input type="text" id="sr" value="" />
+				<a href="#" id="fs">发送</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var sr = document.getElementById('sr');
+			var fs = document.getElementById('fs');
+			var xianshi = document.getElementById('xianshi');
+			var tx =document.getElementById('tx');
+			var onOff = true
+			tx.onclick = function(){
+				if(onOff){
+					tx.style.background = 'url(img/3.jpg) no-repeat 3px 5px';
+					onOff=false;
+				}else{
+					tx.style.background = 'url(img/2.jpg) no-repeat 3px 5px';
+					onOff=true;
+				}
+			}
+			
+			fs.onclick = function(){
+				if(sr.value == ''){
+					alert('发送不能为空');
+				}else if(onOff){
+					xianshi.innerHTML ='<p><img src="img/2.jpg"><span> 说：' + sr.value + "</span></p>" + xianshi.innerHTML;
+				}else{
+					xianshi.innerHTML = '<i><span>说：' + sr.value + '</span><img src="img/3.jpg"></i>' + xianshi.innerHTML ;
+				}
+				sr.value='';
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				background-color: greenyellow;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="mTween.js" type="text/javascript" charset="utf-8"></script>
+		<script src="tween.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var str = '';
+			 for (var i=0;i<10;i++) {
+			 	str +='<div style="left:'+i*60+'px;"></div>' ;
+			 }
+			
+			document.body.innerHTML = str;
+			var divs = document.getElementsByTagName('div');
+			var num = 0;
+			var time = null;
+			var time1 = null;
+			var target = 500;
+			var onoff = true;
+			for (var i=0;i<divs.length;i++) {
+				divs[i].index = i;
+				divs[i].onclick = function(){
+					
+					if(!onoff){
+						return;
+					}
+					onoff = false;
+					num = num1 = this.index;
+					time = setInterval(function(){
+						mTween(divs[num],'top',target,600,'linear')
+						num++;
+						if(num>=divs.length){
+							clearInterval(time);
+						
+						}
+						
+					},100);
+					
+					time1 = setInterval(function(){
+						mTween(divs[num1],'top',target,600,'linear')
+						num1--;
+						if(num1<0){
+							clearInterval(time1);
+							
+						}
+						
+					},100);
+					
+				}
+			}
+			
+		</script>
+		
+	</body>
+</html>

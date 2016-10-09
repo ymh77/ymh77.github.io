@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="text">
+		<input type="button" value="验证" id="anniu">
+		<script type="text/javascript">
+			var inps = document.getElementsByTagName('input');
+			
+			inps[1].onclick = function (){
+				//输入框的内容
+				var value = inps[0].value;
+				//不能直接点击验证
+				if(value == ''){
+					alert('请输入qq号');
+					return;
+				}
+				//循环验证
+				for(var i=0;i<value.length;i++){
+					//验证是否输入了个空格
+					if(value[i] == ' '){
+						alert('输入了一个空格');
+						return;
+					}
+					//验证第一位数字是不是0
+					if(value[0] == '0'){
+						alert('第一位不能为0');
+						return;
+					}
+					//验证输入的内容中是否有.
+					if( value[i] == '.'){
+						alert('请不要输入小数');
+						return;
+					}
+					//验证输入的内容是否是数字
+					if(isNaN(Number(value[i]))){
+						alert('请输入数字');
+						return;
+					}
+					//验证输入的qq号的位数
+					if(value.length>10||value.length<5){
+						alert('请输入5到10位');
+						return;
+					}
+				}
+				alert('请继续验证');
+				
+				
+			}
+			//onfocus 输入获取焦点
+			
+		</script>
+	</body>
+</html>

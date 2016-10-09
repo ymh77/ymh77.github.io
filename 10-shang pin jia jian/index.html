@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul">
+			<li id="li1">
+				<input type="button" id="" value="-" />
+				<strong>0</strong>
+				<input type="button" id="" value="+" />
+				单价：<em>12.5元</em>
+				小计： <span>0</span>
+			</li>
+			<li id="li2">
+				<input type="button" id="" value="-" />
+				<strong>0</strong>
+				<input type="button" id="" value="+" />
+				单价：<em>10.5元</em>
+				小计： <span>0</span>
+			</li>
+			<li id="li3">
+				<input type="button" id="" value="-" />
+				<strong>0</strong>
+				<input type="button" id="" value="+" />
+				单价：<em>8.5元</em>
+				小计： <span>0</span>
+			</li>
+			<li id="li4">
+				<input type="button" id="" value="-" />
+				<strong>0</strong>
+				<input type="button" id="" value="+" />
+				单价：<em>8元</em>
+				小计： <span>0</span>
+			</li>
+			<li id="li5">
+				<input type="button" id="" value="-" />
+				<strong>0</strong>
+				<input type="button" id="" value="+" />
+				单价：<em>14.5元</em>
+				小计： <span>0</span>
+			</li>
+		</ul>
+		<p >
+			商品合                     计共：<span id="jian">0</span>件，共花费了：<span id='yuan'>0</span>元 <br />
+			其中最贵的商品单价是：<span id='zuigui'>0</span>元
+		
+		</p>
+		
+		
+		
+		<script type="text/javascript">
+		var span2 = document.getElementById('jian');
+		var span3 = document.getElementById('yuan');
+		var span4 = document.getElementById('zuigui');
+		var str1 = document.getElementsByTagName('strong');
+		var list =document.getElementsByTagName('li');
+		var ull = document.getElementById('ul');
+		var xiaoji = ull.getElementsByTagName('span');
+		var ems = ull.getElementsByTagName('em');
+	
+		for(var i=0;i<5;i++){
+			fn('li'+(i+1));
+		}
+		//写一个函数表达加减商品单个
+		function fn(asd){
+			var ul = document.getElementById(asd);
+			var lis = ul.getElementsByTagName('li');
+			var btns = ul.getElementsByTagName('input');
+			var str = ul.getElementsByTagName('strong')[0];
+			var em = ul.getElementsByTagName('em')[0];
+			var span1 = ul.getElementsByTagName('span')[0];
+			   //把个数命名给一个变量，让结果转化成数字
+			var n1 = Number(str.innerHTML);
+			//一个变量对应单价，使其输出的格式为可以读取小数点的数字类型而不是字符串
+			var n2 = parseFloat(em.innerHTML);
+			
+			
+			//函数
+			function zxc(){
+				var a= 0;
+				var b= 0;
+				var c= 0;
+				for(var i=0;i<list.length;i++){
+					//循环后个数相加
+					a += Number(str1[i].innerHTML);
+					//循环后价格相加
+					b += parseFloat(xiaoji[i].innerHTML);
+					//每个物品不是零的情况下比较单个最贵的
+					if(parseFloat(str1[i].innerHTML)!=0 && parseFloat(ems[i].innerHTML)>c){
+						c = parseFloat(ems[i].innerHTML);
+					}
+				}
+				span2.innerHTML = a;
+				span3.innerHTML = b;
+				span4.innerHTML = c;
+			}
+			
+			
+			//点击加的时间
+			btns[1].onclick = function(){
+				//每次点击都循环一次
+				n1 ++;
+				//个数输出
+				str.innerHTML = n1;
+				//加钱随便个数增加相乘输出
+				span1.innerHTML = n1*n2+'元';
+				zxc();
+			}
+			btns[0].onclick = function(){
+				n1--;
+				if(n1<0){
+					n1=0;
+				}
+				str.innerHTML = n1;
+				span1.innerHTML = n1*n2+'元';
+				zxc();
+			}
+			
+		}
+			
+			
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

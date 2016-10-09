@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				border: 5px dashed black; 
+				display: none;
+				position: absolute;
+			}
+			#box1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left:50px;
+				top:50px;
+			}
+			#btn{
+				position: absolute;
+				left: 160px;
+				top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+		<input type="button" name="btn" id="btn" value="恢复" />
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			var box1 = document.getElementById('box1');
+			var btn = document.getElementById('btn');
+			var arr = []; 
+			var arr1 = []; 
+			var timer = null;
+			box1.onmousedown = function(ev){
+				var bianx = ev.clientX - this.offsetLeft;
+				var biany = ev.clientY - this.offsetTop;
+				box.style.display = 'block'
+				document.onmousemove = function(ev){
+					var x = ev.clientX - bianx;
+					var y = ev.clientY - biany;
+					
+					if(x<0){
+						x=0;
+					}
+					if(y<0){
+						y = 0;
+					}
+					arr.push(x);
+					arr1.push(y);
+					box.style.left = x+'px';
+					box.style.top = y+'px';
+				};
+				document.onmouseup = function(ev){
+					
+					document.onmousemove = null;
+					box.style.display = 'none'
+					box1.style.left = box.style.left;
+					box1.style.top = box.style.top;
+				};
+				return false;
+			};
+			
+			var onoff = true
+			btn.onclick = function(){
+				if(!onoff)return;
+				onoff = false;
+				var num = arr.length-1;
+				
+				timer = setInterval(function(){
+					box1.style.left = arr[num]+'px';
+					box1.style.top = arr1[num]+'px';
+					num--;
+					if(num<0){
+						clearInterval(timer);
+						box.style.left = 50+'px';
+						box.style.top = 50+'px';
+						arr.length = arr1.length = 0;
+						x=y=50;
+						onoff = true;
+					}
+				},50);
+			}
+		</script>
+	</body>
+</html>

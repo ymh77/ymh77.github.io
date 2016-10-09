@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var num = null;
+		
+			for(var i=100;i<1000;i++){
+				
+				 var a = Math.floor(i/100);
+				 var s = Math.floor((i-a*100)/10);
+				 var d = i-(a*100)-(s*10);
+				 
+				 num = a*a*a+s*s*s+d*d*d;
+				 
+				 if(num==a*100+s*10+d){
+				 	document.body.innerHTML += num+' ';
+				 }
+				
+				
+				
+			}
+			
+			
+		</script>
+	</body>
+</html>
