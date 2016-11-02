@@ -1,0 +1,383 @@
+body{
+	height: 100%;
+	padding:0;
+	margin:0;
+	color:#000;
+	background:#1d1e20;
+}
+#header{
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	z-index: 60;
+	background: black;
+	box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.05);
+}
+#logo{
+	position: relative;
+	top: 5px;
+	left: 25px;
+	height: 50px;
+	cursor: pointer;
+}
+#title{
+	width: 300px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+#year{
+	position: absolute;
+	bottom: 12px;
+	text-transform: uppercase;
+	width: 100%;
+	text-align: center;
+	font-size:30px ;
+	color: #f1b639;
+	letter-spacing: 5px;
+	font-weight: 700;
+}
+.button1{
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 21px 25px;
+	text-align: center;
+	border-left:1px solid rgba(255,255,255,0.4);
+	cursor: pointer;
+}
+.text{
+	text-transform: uppercase;
+	display: inline-block;
+	position: relative;
+	top: -2px;
+	letter-spacing: 1px;
+	font-size: 16px;
+	color: white;
+	transition-delay:300ms ;
+	z-index: 15;
+}
+.border{
+	position: absolute;
+	height: 3px;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	background: #f1b639;
+}
+/*脚部*/
+.footer-timeline{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	height: 60px;
+	z-index: 30px;
+	background: #1d1e20;
+}
+.timeline{
+	position: absolute;
+    min-width: 610px;
+    width: 50%;
+    margin: auto;
+    height: 1px;
+    top: 15px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #868c98;
+}
+.timeline-edition {
+	position: absolute;
+    height: 60px;
+    top: -32px;
+    cursor: pointer;
+    width: 7%;
+    transition: 1s;
+}
+.timeline-edition .data{
+	z-index: 10;
+    position: relative;
+    top: 12px;
+    font-weight: 700;
+    font-size: 11px;
+}
+.round{
+	z-index: 10;
+	position:absolute;
+	height: 5px;
+	width: 5px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 15px;
+	bottom: 0;
+	border-radius: 50%;
+	border: 1px solid #575a60;
+	background: #575a60;
+}
+.circle{
+	z-index: 6;
+    background: #f1b639;
+    width: 100%;
+    min-width: 42px;
+    min-height: 42px;
+    max-height: 50px;
+    max-width: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 6px;
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    transition: 1s;
+}
+.line{
+	position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 20.5px;
+    z-index: 5;
+}
+.dotted{
+	display: inline-block;
+    vertical-align: top;
+    background: #575a60;
+    height: 3px;
+    width: 3px;
+    margin: 0 8%;
+    border-radius: 50%;
+}
+/*中间内容*/
+.ymh{
+	width: 100%;
+	height: calc(100% - 60px);
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+}
+.all-editions{
+	position: absolute;
+	left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    transition: 1s;
+}
+.edition{
+	position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    float: left;
+}
+.match{
+	float: left;
+	width: 33.33%;
+    height: 100%;
+    position: relative;
+    transition: 1s;
+}
+.ymh1{
+	background: #868C98;
+	opacity: 0.3;
+	width: 100%;
+    height: 100%;
+    z-index: 20;
+    position: absolute;
+    transition: 1s;
+}
+.info-content{
+	position: absolute;
+    z-index: 10;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    left:0px;
+    opacity: 0;
+}
+.match .info-content .data1{
+	text-transform: uppercase;
+    text-align: center;
+    color: #f0b439;
+    position: relative;
+    top: 100px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    opacity: 1;
+}
+.title{
+	letter-spacing: 1px;
+    margin: 45vh auto 0;
+    transform: translateY(-50%);
+    color: #8B4513 ;
+    font-size: 16px;
+    max-width: 320px;
+    padding: 0 10px;
+    text-align: center;
+    font-weight: 900;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    text-transform: uppercase;
+}
+.separator{
+	position: absolute;
+    width: 40px;
+    height: 1px;
+    background: #fff;
+    opacity: 0.6;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+}
+.game{
+	padding: 0;
+    height: 50px;
+    position: absolute;
+    bottom: 130px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.game .round1{
+	width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    color: #f0b439;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    left: 0;
+    position: absolute;
+    opacity: 1;
+}
+.game .team{
+	width: 50%;
+    font-weight: 700;
+    height: 100%;
+    position: relative;
+    float: left;
+    opacity: 1;
+    top: 16px;
+    letter-spacing: 1px;
+}
+.team img{
+	border-radius: 50%;
+    height: 20px;
+    width: auto;
+    position: absolute;
+    top: 2px;
+}
+.first-team img{
+	right: 57px;
+}
+.second-team img{
+	left: 57px;
+}
+.title-team{
+	text-transform: uppercase;
+    position: relative;
+    top: 5px;
+    color: #fff;
+}
+.first-team{
+	text-align: right;
+	left: -10px;
+}
+.second-team{
+	text-align: left;
+	right: -10px;
+}
+.separator-team{
+	background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 4px;
+    height: 2px;
+    top: 4px;
+    bottom: 0;
+    opacity: 1;
+}
+.category{
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 5px 0;
+    opacity: 1;
+}
+.content-match{
+	position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+.button{
+	width: 64px;
+	height: 26px;
+	overflow: hidden;
+	position: absolute;
+	left: 200px;
+	bottom: 82px;
+}
+.yhzj{
+	width: 300px;
+	height: 26px;
+	position: absolute;
+	left: -119px;
+	bottom: 0px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 26px;
+}
+.yhzj a{
+	position: absolute;
+	left: 55px;
+	bottom: 0;
+	color: black;
+	transform: matrix(1,0,0,1,0,0);
+	opacity: 0;
+	display: inline-block;
+	background: white;
+	transition: 1.5s;
+}
+.yhzj2{
+	position: absolute;
+	left: 120px;
+	bottom: 0;
+	color: #FFF;
+	transform: matrix(1,0,0,1,0,0);
+	opacity: 0;
+	background: black;
+	transition: 1.5s;
+}
+.active{
+	opacity: 1;
+	transform: matrix(1, 0, 0, 1, 0, 0);
+	height: 49px;
+}
+.active1{
+	border:1px solid rgb(255, 255, 255);
+	transform: matrix(1.05, 0, 0, 1.05, 0, 0);
+	background: rgb(255, 255, 255);
+}
+.active2{
+	color: white;
+}
