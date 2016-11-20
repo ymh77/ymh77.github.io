@@ -67,12 +67,12 @@ var arr = [
 			['img/paging/1958_01.jpg','img/paging/1958_02.jpg','img/paging/1958_03.jpg'],
 			['img/paging/1959_01.jpg','img/paging/1959_02.jpg','img/paging/1959_03.jpg'],
 			['img/paging/1960_01.jpg','img/paging/1960_02.jpg','img/paging/1960_03.jpg'],
-			['img/paging/1956-2.jpg','img/paging/1956-3.jpg','img/paging/1956-4.jpg'],
-			['img/paging/1956-2.jpg','img/paging/1956-3.jpg','img/paging/1956-4.jpg'],
-			['img/paging/1956-2.jpg','img/paging/1956-3.jpg','img/paging/1956-4.jpg'],
-			['img/paging/1956-2.jpg','img/paging/1956-3.jpg','img/paging/1956-4.jpg'],
-			['img/paging/1956-2.jpg','img/paging/1956-3.jpg','img/paging/1956-4.jpg'],
-			['img/paging/1956-2.jpg','img/paging/1956-3.jpg','img/paging/1956-4.jpg']
+			['img/paging/1956_01.jpg','img/paging/1956_02.jpg','img/paging/1956_03.jpg'],
+			['img/paging/1957_01.jpg','img/paging/1957_02.jpg','img/paging/1957_03.jpg'],
+			['img/paging/1958_01.jpg','img/paging/1958_02.jpg','img/paging/1958_03.jpg'],
+			['img/paging/1959_01.jpg','img/paging/1959_02.jpg','img/paging/1959_03.jpg'],
+			['img/paging/1960_01.jpg','img/paging/1960_02.jpg','img/paging/1960_03.jpg'],
+			['img/paging/1956_01.jpg','img/paging/1956_02.jpg','img/paging/1956_03.jpg']
 ];
 
 for (var j=0;j<3;j++){
