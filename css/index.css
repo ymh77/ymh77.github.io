@@ -2,9 +2,10 @@ body{
 	margin: 0;
 	background: url(../img/index-1.jpg) no-repeat ;
 	position: relative;
+        overflow: hidden;
 }
 #head{
-	margin-top: 10px;
+	
 }
 #head1{
 	margin-left: 535px;
