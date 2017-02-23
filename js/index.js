@@ -1,6 +1,6 @@
 var winWidth = document.body.clientWidth;
 
-$("#head").css({width:winWidth+'px'});
+
 
 
 
